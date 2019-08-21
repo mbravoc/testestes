@@ -34,6 +34,7 @@
           <Property Name="nome_Pecas" Type="varchar" MaxLength="50" />
           <Property Name="preco_Pecas" Type="float" />
           <Property Name="tipo" Type="int" Nullable="false" />
+          <Property Name="nome_carro" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -51,7 +52,6 @@
           </Key>
           <Property Name="id_Tipo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="descricao" Type="varchar" MaxLength="200" />
-          <Property Name="carro" Type="int" />
         </EntityType>
         <EntityType Name="Usuario">
           <Key>
@@ -82,18 +82,6 @@
             </Principal>
             <Dependent Role="Pecas">
               <PropertyRef Name="tipo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Tipo_Carro">
-          <End Role="Carro" Type="Self.Carro" Multiplicity="0..1" />
-          <End Role="Tipo" Type="Self.Tipo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Carro">
-              <PropertyRef Name="id_carro" />
-            </Principal>
-            <Dependent Role="Tipo">
-              <PropertyRef Name="carro" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -143,10 +131,6 @@
             <End Role="Tipo" EntitySet="Tipo" />
             <End Role="Pecas" EntitySet="Pecas" />
           </AssociationSet>
-          <AssociationSet Name="FK_Tipo_Carro" Association="Self.FK_Tipo_Carro">
-            <End Role="Carro" EntitySet="Carro" />
-            <End Role="Tipo" EntitySet="Tipo" />
-          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -159,7 +143,6 @@
           </Key>
           <Property Name="id_carro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nome_Carro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Tipo" Relationship="Self.FK_Tipo_Carro" FromRole="Carro" ToRole="Tipo" />
         </EntityType>
         <EntityType Name="Cliente">
           <Key>
@@ -184,6 +167,7 @@
           <Property Name="nome_Pecas" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="preco_Pecas" Type="Double" />
           <Property Name="tipo" Type="Int32" Nullable="false" />
+          <Property Name="nome_carro" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Tipo1" Relationship="Self.FK_Pecas_Tipo" FromRole="Pecas" ToRole="Tipo" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -202,8 +186,6 @@
           </Key>
           <Property Name="id_Tipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="descricao" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="carro" Type="Int32" />
-          <NavigationProperty Name="Carro1" Relationship="Self.FK_Tipo_Carro" FromRole="Tipo" ToRole="Carro" />
           <NavigationProperty Name="Pecas" Relationship="Self.FK_Pecas_Tipo" FromRole="Tipo" ToRole="Pecas" />
         </EntityType>
         <EntityType Name="Usuario">
@@ -215,18 +197,6 @@
           <Property Name="senha_Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Cliente" Relationship="Self.FK_Cliente_Usuario" FromRole="Usuario" ToRole="Cliente" />
         </EntityType>
-        <Association Name="FK_Tipo_Carro">
-          <End Role="Carro" Type="Self.Carro" Multiplicity="0..1" />
-          <End Role="Tipo" Type="Self.Tipo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Carro">
-              <PropertyRef Name="id_carro" />
-            </Principal>
-            <Dependent Role="Tipo">
-              <PropertyRef Name="carro" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Cliente_Usuario">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
           <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
@@ -258,10 +228,6 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Tipo" EntityType="Self.Tipo" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" />
-          <AssociationSet Name="FK_Tipo_Carro" Association="Self.FK_Tipo_Carro">
-            <End Role="Carro" EntitySet="Carro" />
-            <End Role="Tipo" EntitySet="Tipo" />
-          </AssociationSet>
           <AssociationSet Name="FK_Cliente_Usuario" Association="Self.FK_Cliente_Usuario">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Cliente" EntitySet="Cliente" />
@@ -348,6 +314,7 @@
                 <ScalarProperty Name="nome_Pecas" ColumnName="nome_Pecas" />
                 <ScalarProperty Name="preco_Pecas" ColumnName="preco_Pecas" />
                 <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="nome_carro" ColumnName="nome_carro" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -367,7 +334,6 @@
               <MappingFragment StoreEntitySet="Tipo">
                 <ScalarProperty Name="id_Tipo" ColumnName="id_Tipo" />
                 <ScalarProperty Name="descricao" ColumnName="descricao" />
-                <ScalarProperty Name="carro" ColumnName="carro" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -31,6 +31,7 @@
           <ScalarProperty Name="nome_Pecas" ColumnName="nome_Pecas" />
           <ScalarProperty Name="preco_Pecas" ColumnName="preco_Pecas" />
           <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="nome_carro" ColumnName="nome_carro" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -50,7 +51,6 @@
         <MappingFragment StoreEntitySet="Tipo">
           <ScalarProperty Name="id_Tipo" ColumnName="id_Tipo" />
           <ScalarProperty Name="descricao" ColumnName="descricao" />
-          <ScalarProperty Name="carro" ColumnName="carro" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

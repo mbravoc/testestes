@@ -29,6 +29,7 @@
     <Property Name="nome_Pecas" Type="varchar" MaxLength="50" />
     <Property Name="preco_Pecas" Type="float" />
     <Property Name="tipo" Type="int" Nullable="false" />
+    <Property Name="nome_carro" Type="varchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -46,7 +47,6 @@
     </Key>
     <Property Name="id_Tipo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="descricao" Type="varchar" MaxLength="200" />
-    <Property Name="carro" Type="int" />
   </EntityType>
   <EntityType Name="Usuario">
     <Key>
@@ -77,18 +77,6 @@
       </Principal>
       <Dependent Role="Pecas">
         <PropertyRef Name="tipo" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Tipo_Carro">
-    <End Role="Carro" Type="Self.Carro" Multiplicity="0..1" />
-    <End Role="Tipo" Type="Self.Tipo" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Carro">
-        <PropertyRef Name="id_carro" />
-      </Principal>
-      <Dependent Role="Tipo">
-        <PropertyRef Name="carro" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -137,10 +125,6 @@
     <AssociationSet Name="FK_Pecas_Tipo" Association="Self.FK_Pecas_Tipo">
       <End Role="Tipo" EntitySet="Tipo" />
       <End Role="Pecas" EntitySet="Pecas" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Tipo_Carro" Association="Self.FK_Tipo_Carro">
-      <End Role="Carro" EntitySet="Carro" />
-      <End Role="Tipo" EntitySet="Tipo" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

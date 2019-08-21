@@ -11,19 +11,14 @@ namespace Oficial3.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Web.Mvc;
+
     public partial class Carro
+
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Carro()
-        {
-            this.Tipo = new HashSet<Tipo>();
-        }
-    
         public int id_carro { get; set; }
-        public string nome_Carro { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tipo> Tipo { get; set; }
+        public String nome_Carro { get; set; }
+        
+
     }
 }

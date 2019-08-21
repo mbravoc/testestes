@@ -17,8 +17,7 @@ namespace Oficial3.Controllers.cruds
         // GET: Tipo
         public ActionResult IndexTipo()
         {
-            var tipo = db.Tipo.Include(t => t.Carro1);
-            return View(tipo.ToList());
+            return View(db.Tipo.ToList());
         }
 
         // GET: Tipo/Details/5
@@ -48,7 +47,7 @@ namespace Oficial3.Controllers.cruds
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id_Tipo,descricao,carro")] Tipo tipo)
+        public ActionResult Create([Bind(Include = "id_Tipo,descricao")] Tipo tipo)
         {
             if (ModelState.IsValid)
             {
@@ -56,8 +55,6 @@ namespace Oficial3.Controllers.cruds
                 db.SaveChanges();
                 return RedirectToAction("IndexTipo");
             }
-
-            ViewBag.carro = new SelectList(db.Carro, "id_carro", "nome_Carro", tipo.carro);
             return View(tipo);
         }
 
@@ -73,7 +70,6 @@ namespace Oficial3.Controllers.cruds
             {
                 return HttpNotFound();
             }
-            ViewBag.carro = new SelectList(db.Carro, "id_carro", "nome_Carro", tipo.carro);
             return View(tipo);
         }
 
@@ -82,7 +78,7 @@ namespace Oficial3.Controllers.cruds
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id_Tipo,descricao,carro")] Tipo tipo)
+        public ActionResult Edit([Bind(Include = "id_Tipo,descricao")] Tipo tipo)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +86,6 @@ namespace Oficial3.Controllers.cruds
                 db.SaveChanges();
                 return RedirectToAction("IndexTipo");
             }
-            ViewBag.carro = new SelectList(db.Carro, "id_carro", "nome_Carro", tipo.carro);
             return View(tipo);
         }
 

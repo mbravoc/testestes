@@ -26,7 +26,7 @@ namespace Oficial3.Models
         {
             throw new UnintentionalCodeFirstException();
         }
-    
+        public virtual DbQuery<Carro> Carros { get; set; }
         public virtual DbSet<Carro> Carro { get; set; }
         public virtual DbSet<Cliente> Cliente { get; set; }
         public virtual DbSet<Pecas> Pecas { get; set; }

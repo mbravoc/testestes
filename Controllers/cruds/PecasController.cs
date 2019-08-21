@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Oficial3.Models;
@@ -39,8 +40,26 @@ namespace Oficial3.Controllers.cruds
         // GET: Pecas/Create
         public ActionResult Create()
         {
+            catalogoOficialEntities db = new catalogoOficialEntities();
+
+            List<Carro> carros = new List<Carro>();
+
+            carros = db.Carro.ToList();
+            ViewBag.Carros = carros;
             ViewBag.tipo = new SelectList(db.Tipo, "id_Tipo", "descricao");
             return View();
+            //public async Task<ActionResult> Createe(string tipocarro, string searchString)
+            //{
+            //    //DbContext db = new DbContext();
+            //    //ViewBag.Uf = new SelectList(db.nome, "Id", "Initials");
+
+            //    var _context = new catalogoOficialEntities();
+            //    // Use LINQ to get list of genres.
+            //    IOrderedEnumerable<Carro> genreQuery = from m in _context.Carro.AsEnumerable()
+            //                                           orderby m.nome_Carro
+            //                                           select m;
+            //    return View(genreQuery.ToList());
+            //}
         }
 
         // POST: Pecas/Create
@@ -58,8 +77,7 @@ namespace Oficial3.Controllers.cruds
             }
 
             ViewBag.tipo = new SelectList(db.Tipo, "id_Tipo", "descricao", pecas.tipo);
-            return View(pecas);
-        }
+            return View(pecas); }
 
         // GET: Pecas/Edit/5
         public ActionResult Edit(int? id)
@@ -128,5 +146,26 @@ namespace Oficial3.Controllers.cruds
             }
             base.Dispose(disposing);
         }
+        
+            //var carros = from m in _context.Carro.AsEnumerable()
+            //             select m;
+
+            //if (!string.IsNullOrEmpty(searchString))
+            //{
+            //    carros = carros.Where(s => s.nome_carro(searchString));
+            //}
+
+            //if (!string.IsNullOrEmpty(tipocarro))
+            //{
+            //    carros = carros.Where(x => x.nome.carro == tipocarro);
+            //}
+
+            //var oficial = new Oficial3.Models.Carro
+            //{
+            //    Carros = new SelectList(await genreQuery.Distinct().ToListAsync()),
+            //    nome_Carro = await carros.ToListAsync()
+            //};
+
+            
     }
 }

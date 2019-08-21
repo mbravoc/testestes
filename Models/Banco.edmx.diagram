@@ -4,14 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3137376adedb4efd8d46c27b60e10ef6" Name="Diagram1">
-        <EntityTypeShape EntityType="catalogoOficialModel.Carro" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="catalogoOficialModel.Cliente" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="catalogoOficialModel.Pecas" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
+      <Diagram DiagramId="dd217b9da5824a92babc7183b470d7a5" Name="Diagram1">
+        <EntityTypeShape EntityType="catalogoOficialModel.Carro" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="catalogoOficialModel.Cliente" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="catalogoOficialModel.Pecas" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="catalogoOficialModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="catalogoOficialModel.Tipo" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="catalogoOficialModel.Usuario" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
-        <AssociationConnector Association="catalogoOficialModel.FK_Tipo_Carro" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="catalogoOficialModel.Tipo" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="catalogoOficialModel.Usuario" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
         <AssociationConnector Association="catalogoOficialModel.FK_Cliente_Usuario" ManuallyRouted="false" />
         <AssociationConnector Association="catalogoOficialModel.FK_Pecas_Tipo" ManuallyRouted="false" />
       </Diagram>

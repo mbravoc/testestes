@@ -18,6 +18,7 @@ namespace Oficial3.Models
         public string nome_Pecas { get; set; }
         public Nullable<double> preco_Pecas { get; set; }
         public int tipo { get; set; }
+        public string nome_carro { get; set; }
     
         public virtual Tipo Tipo1 { get; set; }
     }
