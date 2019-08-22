@@ -132,6 +132,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CatalogoCategoriaController.cs" />
+    <Compile Include="Controllers\CatalogoController.cs" />
     <Compile Include="Controllers\cruds\CarroController.cs" />
     <Compile Include="Controllers\cruds\ClienteController.cs" />
     <Compile Include="Controllers\cruds\PecasController.cs" />
@@ -225,6 +227,9 @@
     <Content Include="Views\Pecas\Details.cshtml" />
     <Content Include="Views\Pecas\Edit.cshtml" />
     <Content Include="Views\Pecas\IndexPecas.cshtml" />
+    <Content Include="Views\Catalogo\Catalogo.cshtml" />
+    <Content Include="Views\Catalogo\IndexAjaxCatalogo.cshtml" />
+    <Content Include="Views\CatalogoCategoria\CatalogoCategoria.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

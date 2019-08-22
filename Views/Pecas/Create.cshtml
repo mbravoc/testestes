@@ -11,17 +11,11 @@
     @Html.AntiForgeryToken()
 
 
-    
+
 <div class="form-horizontal">
     <h4>Pecas</h4>
     <hr />
 
-    <select id="selectcarros" name=" ">
-        @foreach (var item in ViewBag.Carros)
-        {
-            <option value="@item.nome_Carro">@item.nome_Carro</option>
-        }
-    </select>
 
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
@@ -64,21 +58,3 @@
     @Html.ActionLink("Back to List", "IndexPecas")
 </div>
 
-<script src="~/Scripts/jquery-3.3.1.intellisense.js"></script>
-<script src="~/Scripts/jquery-3.3.1.js"></script>
-<script src="~/Scripts/jquery-3.3.1.min.js"></script>
-<script src="~/Scripts/jquery-3.3.1.slim.js"></script>
-<script src="~/Scripts/jquery-3.3.1.slim.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function ()
-    {
-        $("#selectcarros").change(function ()
-        {
-            var url =" @Url.Action("IndexPecas","Pecas")";
-            location.href = url;
-        });
-    });
-
-
-
-</script>>

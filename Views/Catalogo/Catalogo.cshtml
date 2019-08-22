@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Oficial3.Models.Pecas>
+@{
+    ViewBag.Title = "CATÁLOGO - Cliente";
+}
+<body>
+
+    @foreach (var item in Model)
+    {
+        <p><label>Nome : </label> @item.nome_Pecas</p>
+        <p><label>Preço : </label> @item.preco_Pecas</p>
+        <p><label>Categoria : </label> @item.tipo</p>
+
+    }
+</body>
+
+
+
+
+
+

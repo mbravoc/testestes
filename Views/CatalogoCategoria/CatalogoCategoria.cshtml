@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Oficial3.Models.Tipo>
+@{
+    ViewBag.Title = "CatalogoCategoria";
+}
+
+<h2>Selecione a Categoria</h2>
+
+@foreach (var item in Model)
+{
+    <div>
+        @item.descricao
+        <hr />
+    </div>
+}
+

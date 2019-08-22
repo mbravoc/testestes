@@ -18,18 +18,19 @@ namespace Oficial3.Controllers.cruds
         // GET: Pecas
         public ActionResult IndexPecas()
         {
-            var pecas = db.Pecas.Include(p => p.Tipo1);
+            var pecas = db.PecasInfo.Include(p => p.Tipo1);
             return View(pecas.ToList());
         }
 
         // GET: Pecas/Details/5
         public ActionResult Details(int? id)
         {
+            
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Pecas pecas = db.Pecas.Find(id);
+            Pecas pecas = db.PecasInfo.Find(id);
             if (pecas == null)
             {
                 return HttpNotFound();
@@ -40,14 +41,7 @@ namespace Oficial3.Controllers.cruds
         // GET: Pecas/Create
         public ActionResult Create()
         {
-            catalogoOficialEntities db = new catalogoOficialEntities();
 
-            List<Carro> carros = new List<Carro>();
-
-            carros = db.Carro.ToList();
-            ViewBag.Carros = carros;
-            ViewBag.tipo = new SelectList(db.Tipo, "id_Tipo", "descricao");
-            return View();
             //public async Task<ActionResult> Createe(string tipocarro, string searchString)
             //{
             //    //DbContext db = new DbContext();
@@ -60,6 +54,7 @@ namespace Oficial3.Controllers.cruds
             //                                           select m;
             //    return View(genreQuery.ToList());
             //}
+            return View();
         }
 
         // POST: Pecas/Create
@@ -71,7 +66,7 @@ namespace Oficial3.Controllers.cruds
         {
             if (ModelState.IsValid)
             {
-                db.Pecas.Add(pecas);
+                db.PecasInfo.Add(pecas);
                 db.SaveChanges();
                 return RedirectToAction("IndexPecas");
             }
@@ -86,7 +81,7 @@ namespace Oficial3.Controllers.cruds
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Pecas pecas = db.Pecas.Find(id);
+            Pecas pecas = db.PecasInfo.Find(id);
             if (pecas == null)
             {
                 return HttpNotFound();
@@ -119,7 +114,7 @@ namespace Oficial3.Controllers.cruds
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Pecas pecas = db.Pecas.Find(id);
+            Pecas pecas = db.PecasInfo.Find(id);
             if (pecas == null)
             {
                 return HttpNotFound();
@@ -132,8 +127,8 @@ namespace Oficial3.Controllers.cruds
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Pecas pecas = db.Pecas.Find(id);
-            db.Pecas.Remove(pecas);
+            Pecas pecas = db.PecasInfo.Find(id);
+            db.PecasInfo.Remove(pecas);
             db.SaveChanges();
             return RedirectToAction("IndexPecas");
         }
@@ -145,6 +140,21 @@ namespace Oficial3.Controllers.cruds
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        [HttpGet]
+        public JsonResult DetailsJSON(int? id)
+        {
+            var peca = db.PecasInfo.AsEnumerable().FirstOrDefault(p => p.id_Pecas == id);
+
+            dynamic pJSON = new
+            {
+                id = peca.id_Pecas,
+                nome = peca.nome_Pecas
+            };
+                                             
+
+            return Json(pJSON, JsonRequestBehavior.AllowGet);
         }
         
             //var carros = from m in _context.Carro.AsEnumerable()

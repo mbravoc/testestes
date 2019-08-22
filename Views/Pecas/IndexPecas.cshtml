@@ -23,23 +23,26 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.nome_Pecas)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.preco_Pecas)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tipo1.descricao)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id_Pecas }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id_Pecas }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id_Pecas })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome_Pecas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.preco_Pecas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo1.descricao)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id_Pecas }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id_Pecas }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id_Pecas })
 
+                @*<button value="@item.id_Pecas@item.nome_Pecas,@item.preco_Pecas,@item.Tipo1 " onclick="pJSON">New Details</button>*@
+            </td>
+        </tr>
+    }
 </table>
+
