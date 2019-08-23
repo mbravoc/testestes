@@ -1,0 +1,12 @@
+﻿body {
+    background-image: url(mercedes.jpg)
+}
+
+#formlogin {
+    background-color: white;
+    position: absolute;
+    left: 40%;
+    top: 30%;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+}

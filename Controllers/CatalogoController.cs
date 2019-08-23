@@ -20,8 +20,8 @@ namespace Oficial3.Controllers
         public ActionResult Catalogo(int id)
         {
             //List<Pecas> PecasInfo = db.PecasInfo.Where(x => x.id_Pecas == id).ToList();
-            Pecas PecasInfo = db.PecasInfo.Where(x => x.id_Pecas == id).FirstOrDefault();
-            return View(db.PecasInfo);
+            Pecas PecasInfo = db.PecasInfo.FirstOrDefault(x => x.id_Pecas == id);
+            return View(PecasInfo);
         }
        
 

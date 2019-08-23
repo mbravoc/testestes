@@ -2,17 +2,19 @@
 @{
     ViewBag.Title = "Index";
 }
+    <link href="~/Content/index.css" rel="stylesheet" />
+    <div>
+        <h2>Selecione seu Carro</h2>
 
-<h2>Selecione seu Carro</h2>
 
+        <select id="selectcarros" name=" ">
+            @foreach (var item in ViewBag.Carros)
+            {
+                <option value="@item.nome_Carro">@item.nome_Carro</option>
+            }
+        </select>
 
-<select id="selectcarros" name=" ">
-    @foreach (var item in ViewBag.Carros)
-    {
-        <option value="@item.nome_Carro">@item.nome_Carro</option>
-    }
-</select>
-
+    </div>
 
 <script src="~/Scripts/jquery-3.3.1.intellisense.js"></script>
 <script src="~/Scripts/jquery-3.3.1.js"></script>
@@ -25,7 +27,7 @@
     {
         $("#selectcarros").change(function ()
         {
-            var url = "@Url.Action("Details","Catalogo")";
+            var url = "@Url.Action("IndexAjaxCatalogo","Catalogo")";
 
             $.get
             location.href = url;
