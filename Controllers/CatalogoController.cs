@@ -9,22 +9,19 @@ namespace Oficial3.Controllers
 {
     public class CatalogoController : Controller
     {
-        // GET: Catalogo
+       // GET: Catalogo
         // catalogo que mostra as peças listadas
         catalogoOficialEntities db = new catalogoOficialEntities();
         public ActionResult IndexAjaxCatalogo()
         {
-            return View(db.PecasInfo.ToList());
+            return View(db.Pecas.ToList());
         }
 
         public ActionResult Catalogo(int id)
         {
             //List<Pecas> PecasInfo = db.PecasInfo.Where(x => x.id_Pecas == id).ToList();
-            Pecas PecasInfo = db.PecasInfo.FirstOrDefault(x => x.id_Pecas == id);
+            Pecas PecasInfo = db.Pecas.FirstOrDefault(x => x.id_Pecas == id);
             return View(PecasInfo);
         }
-       
-
-       
-    }
+    } 
 }

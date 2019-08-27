@@ -17,9 +17,9 @@ namespace Oficial3.Controllers.cruds
         // GET: Cliente
         public ActionResult IndexCliente()
         {
-            var cliente = db.Cliente.Include(c => c.Usuario1);
+            var cliente = db.Cliente;
             return View(cliente.ToList());
-        }
+        }   
 
         // GET: Cliente/Details/5
         public ActionResult Details(int? id)

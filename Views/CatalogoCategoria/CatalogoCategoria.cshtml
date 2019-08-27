@@ -1,15 +1,45 @@
-﻿@model IEnumerable<Oficial3.Models.Tipo>
+﻿@model Oficial3.Models.Tipo
 @{
-    ViewBag.Title = "CatalogoCategoria";
+    ViewBag.Title = "CATÁLOGO - Cliente";
 }
 
-<h2>Selecione a Categoria</h2>
+@*<h2>Selecione a Categoria:</h2>
 
-@foreach (var item in Model)
-{   
-    <div>
-        @item.descricao
-        <hr />
-    </div>
-}
+    <select id="selectTipos" name=" ">
+        @foreach (var item in Model)
+        {
+
+            @Html.ActionLink((string)item.descricao, "IndexAjaxCatalogo", new { descricao = item.id_Tipo.ToString() }), new { target = "_blank" })
+
+
+            <option value="">text</option>
+
+        }
+
+    </select>*@
+<div>
+    <h2>Selecione sua Categoria</h2>
+
+
+    <select id="selectcarros" name=" ">
+        @foreach (var item in ViewBag.Tipo)
+        {
+            <option value="@item.descricao">@item.descricao</option>
+        }
+    </select>
+
+</div>
+<script type="text/javascript">
+    $(document).ready(function ()
+    {
+        $("#selectTipos").change(function ()
+        {
+            var url = "@Url.Action("CatalogoCategoria","CatalogoCategoria")";
+            window.open("https://localhost:44382/IndexAjaxCatalogo/Catalogo");
+
+            $.get
+            location.href = url;
+        });
+    });
+</script>
 

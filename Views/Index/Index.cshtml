@@ -27,7 +27,8 @@
     {
         $("#selectcarros").change(function ()
         {
-            var url = "@Url.Action("IndexAjaxCatalogo","Catalogo")";
+            @*var url = "@Url.Action("CatalogoCategoria","CatalogoCategoria")";*@
+            window.open("https://localhost:44382/CatalogoCategoria/CatalogoCategoria/1002");
 
             $.get
             location.href = url;

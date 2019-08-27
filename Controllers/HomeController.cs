@@ -22,15 +22,22 @@ namespace Oficial3.Controllers
             {
                 using (catalogoOficialEntities db = new catalogoOficialEntities())
                 {
-                    var obj = db.Usuario.Where(a => a.nome_Usuario.Equals(objUser.nome_Usuario) && a.senha_Usuario.Equals(objUser.senha_Usuario)).FirstOrDefault();
-                    if (obj == null)
+                    var user = db.Usuario.Where(a => a.nome_Usuario.Equals(objUser.nome_Usuario) && a.senha_Usuario.Equals(objUser.senha_Usuario)).FirstOrDefault();
+
+                    dynamic userResposta = user;
+
+                    if (userResposta == null)
                     {
-                        objUser.LoginErrorMessage = "Usuario ou senha incorretos";
-                        return View("Login", objUser);
+                        userResposta = new
+                        {
+                            LoginErrorMessage = "Usuario ou senha incorretos"
+                        };
+
+                        return View("Login", userResposta);
                     }
                     else
                     {
-                        Session["id_Usuario"] = obj.id_Usuario;
+                        Session["id_Usuario"] = user.id_Usuario;
                         return RedirectToAction("Index", "Index");
 
                     }

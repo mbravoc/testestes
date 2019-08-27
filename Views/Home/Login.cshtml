@@ -2,6 +2,10 @@
 
 @{
     ViewBag.Title = "Login";
+    //if(Session["id_Usuario"] == null)
+    //{
+    //    Response.Redirect("~/Home/Login");
+    //}
 }
 <link href="~/Content/login.css" rel="stylesheet" />
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
@@ -33,7 +37,7 @@
                     <div class="panel-title">LOGIN - Catálogo</div>
                 </div>
 
-                <div style="padding-top:30px" class="panel-body">
+                <div style="padding-top:30px" class="#myform">
                     <div style="display:none" id="result" class="alert
                     alert-danger col-sm-12">
 
@@ -96,8 +100,23 @@
         </div>
     </div>
 
-    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+    <script>
+        // just for the demos, avoids form submit
+        jQuery.validator.setDefaults({
+            debug: true,
+            success: "valid"
+        });
+        $("#myform").validate({
+            rules: {
+                field: {
+                    required: true,
+                    step: 10
+                }
+            }
+        });
+    </script>
 
 }

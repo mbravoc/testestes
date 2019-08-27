@@ -12,7 +12,7 @@ namespace Oficial3.Controllers
 {
     public class UsuarioController : Controller
     {
-        private catalogoOficialEntities db = new catalogoOficialEntities();
+        private catalogoOficialEntities db = new catalogoOficialEntities ();
 
         // GET: Usuario
         public ActionResult IndexUsuario()

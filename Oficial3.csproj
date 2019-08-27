@@ -108,30 +108,15 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\Banco.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Banco.edmx</DependentUpon>
-      <LastGenOutput>Banco.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Banco.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Banco.edmx</DependentUpon>
-      <LastGenOutput>Banco.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\Banco.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Banco.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Banco.edmx.diagram">
-      <DependentUpon>Banco.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -141,52 +126,12 @@
     <Compile Include="Controllers\CatalogoController.cs" />
     <Compile Include="Controllers\cruds\CarroController.cs" />
     <Compile Include="Controllers\cruds\ClienteController.cs" />
-    <Compile Include="Controllers\cruds\PecasController.cs" />
     <Compile Include="Controllers\cruds\TipoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
     <Compile Include="Controllers\cruds\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Banco.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Banco.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Banco.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Banco.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Banco.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Banco.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Carro.cs">
-      <DependentUpon>Banco.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Cliente.cs">
-      <DependentUpon>Banco.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Pecas.cs">
-      <DependentUpon>Banco.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>Banco.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sp_helpdiagrams_Result.cs">
-      <DependentUpon>Banco.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysdiagrams.cs">
-      <DependentUpon>Banco.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Tipo.cs">
-      <DependentUpon>Banco.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Usuario.cs">
-      <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -227,11 +172,6 @@
     <Content Include="Views\Tipo\Details.cshtml" />
     <Content Include="Views\Tipo\Edit.cshtml" />
     <Content Include="Views\Tipo\IndexTipo.cshtml" />
-    <Content Include="Views\Pecas\Create.cshtml" />
-    <Content Include="Views\Pecas\Delete.cshtml" />
-    <Content Include="Views\Pecas\Details.cshtml" />
-    <Content Include="Views\Pecas\Edit.cshtml" />
-    <Content Include="Views\Pecas\IndexPecas.cshtml" />
     <Content Include="Views\Catalogo\Catalogo.cshtml" />
     <Content Include="Views\Catalogo\IndexAjaxCatalogo.cshtml" />
     <Content Include="Views\CatalogoCategoria\CatalogoCategoria.cshtml" />
@@ -244,6 +184,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
